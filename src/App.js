@@ -1,11 +1,3 @@
-
-
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
-}
-
-export default App;
+export const inc = ()=> ({ type: "INC" })
+export const dec = ()=> ({ type: "DEC" })
+export const rnd = (value)=>({type:'RND',value})

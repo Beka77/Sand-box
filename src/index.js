@@ -1,27 +1,22 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+// import App from './App.jsx'
+// import './index.css'
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
+// ReactDOM.createRoot(document.getElementById('root')).render(
 //   <React.StrictMode>
 //     <App />
-//   </React.StrictMode>
-// );
+//   </React.StrictMode>,
+// )
 import { createStore } from "redux";
-
-const initialState = 0;
-const reducer = (state = 0, action) => {
-  switch (action.type) {
-    case "INC":
-      return ++state;
-    default:
-      return state;
-  }
-};
+import reducer from "./reducer";
+import Capp from "./components/Capp"
+import { Provider } from "react-redux";
 const store = createStore(reducer);
-console.log(store.getState());
-store.dispatch({ type: "INC" });
-console.log(store.getState());
-store.dispatch({ type: "INC" });
-console.log(store.getState());
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <Provider store={store} >
+        <Capp/>
+      </Provider>
+    </React.StrictMode>
+  );
